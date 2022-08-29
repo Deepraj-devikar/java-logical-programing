@@ -1,5 +1,3 @@
-package com.logicalprograms;
-
 import java.util.Scanner;
 
 public class PrimeNumber {
@@ -13,22 +11,19 @@ public class PrimeNumber {
 		int number = scanner.nextInt();
 		if (number < 0) number = -number;
 		System.out.println("You enterd "+number);
-	
 		// Check is prime or not
 		boolean isPrime;
 		if (number > 1) {
 			isPrime = true;
-			for (int divisor = 2; divisor <= number / 2; divisor++) 
+			for (int divisor = 2; divisor <= number / 2; divisor++)
 				if (number % divisor == 0) {
 					isPrime = false;
 					break;
 				}
 		} else isPrime = false;
-		
 		// Show it is prime number or not
 		if (isPrime) System.out.println(number+" is prime number");
 		else System.out.println(number+" is not prime number");
-		
 		scanner.close();
 	}
 

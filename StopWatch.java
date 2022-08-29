@@ -1,13 +1,10 @@
-package com.logicalprograms;
-
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class StopWatch {
-	
+
 	public static void main(String[] args) {
 		System.out.println("Welcome Stop Watch Program");
-		
 		Scanner scanner = new Scanner(System.in);
 		// Start Stop Watch
 		while (true) {
@@ -18,7 +15,6 @@ public class StopWatch {
 			}
 		}
 		LocalDateTime startTime = LocalDateTime.now();
-		
 		// Stop Stop Watch
 		while (true) {
 			System.out.print("Stop stop watch by entering 0 : ");
@@ -28,7 +24,6 @@ public class StopWatch {
 			}
 		}
 		LocalDateTime stopTime = LocalDateTime.now();
-		
 		int hours = stopTime.getHour() - startTime.getHour();
 		int minutes = stopTime.getMinute() - startTime.getMinute();
 		int seconds = stopTime.getSecond() - startTime.getSecond();
