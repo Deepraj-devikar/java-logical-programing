@@ -1,5 +1,6 @@
-import java.time.LocalDateTime;
 import java.util.Scanner;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 public class StopWatch {
 
@@ -14,7 +15,7 @@ public class StopWatch {
 				break;
 			}
 		}
-		LocalDateTime startTime = LocalDateTime.now();
+		Timestamp startTime= Timestamp.from(Instant.now());
 		// Stop Stop Watch
 		while (true) {
 			System.out.print("Stop stop watch by entering 0 : ");
@@ -23,12 +24,16 @@ public class StopWatch {
 				break;
 			}
 		}
-		LocalDateTime stopTime = LocalDateTime.now();
-		int hours = stopTime.getHour() - startTime.getHour();
-		int minutes = stopTime.getMinute() - startTime.getMinute();
-		int seconds = stopTime.getSecond() - startTime.getSecond();
-		int nanoSeconds = stopTime.getNano() - startTime.getNano();
-		System.out.println(hours+" : "+minutes+" : "+seconds);
+		Timestamp stopTime= Timestamp.from(Instant.now());
+		long difference = stopTime.getTime() - startTime.getTime();
+		long nanoSeconds = difference % 1000;
+		difference /= 1000;
+		long seconds = difference % 60;
+		difference /= 60;
+		long minutes = difference % 60;
+		difference /= 60;
+		long hours = difference;
+		System.out.println(hours+" : "+minutes+" : "+seconds+" : "+nanoSeconds);
 		scanner.close();
 	}
 }
